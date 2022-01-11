@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DBQuizardModelStoreContainer" CdmEntityContainer="DBQuizardEntities">
+    <EntitySetMapping Name="Answer">
+      <EntityTypeMapping TypeName="DBQuizardModel.Answer">
+        <MappingFragment StoreEntitySet="Answer">
+          <ScalarProperty Name="IDAnswer" ColumnName="IDAnswer" />
+          <ScalarProperty Name="Answer1" ColumnName="Answer" />
+          <ScalarProperty Name="RightAnswer" ColumnName="RightAnswer" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NewGuest">
+      <EntityTypeMapping TypeName="DBQuizardModel.NewGuest">
+        <MappingFragment StoreEntitySet="NewGuest">
+          <ScalarProperty Name="IDGuest" ColumnName="IDGuest" />
+          <ScalarProperty Name="Nickname" ColumnName="Nickname" />
+          <ScalarProperty Name="DateOfCreation" ColumnName="DateOfCreation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Question">
+      <EntityTypeMapping TypeName="DBQuizardModel.Question">
+        <MappingFragment StoreEntitySet="Question">
+          <ScalarProperty Name="IDQuestion" ColumnName="IDQuestion" />
+          <ScalarProperty Name="Question1" ColumnName="Question" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="QuizID" ColumnName="QuizID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Quiz">
+      <EntityTypeMapping TypeName="DBQuizardModel.Quiz">
+        <MappingFragment StoreEntitySet="Quiz">
+          <ScalarProperty Name="IDQuiz" ColumnName="IDQuiz" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="UserAccID" ColumnName="UserAccID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserAcc">
+      <EntityTypeMapping TypeName="DBQuizardModel.UserAcc">
+        <MappingFragment StoreEntitySet="UserAcc">
+          <ScalarProperty Name="IDUserAcc" ColumnName="IDUserAcc" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Pass" ColumnName="Pass" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
