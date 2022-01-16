@@ -11,7 +11,7 @@ namespace PRA.WEBFORME
 {
 
 
-    public partial class PrijavaPostoječegKorisnika
+    public partial class PrijavaPostojecegKorisnika
     {
 
         /// <summary>

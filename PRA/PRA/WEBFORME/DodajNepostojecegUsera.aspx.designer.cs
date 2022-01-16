@@ -11,7 +11,7 @@ namespace PRA.WEBFORME
 {
 
 
-    public partial class DodajNepostojećegUsera
+    public partial class DodajNepostojecegUsera
     {
 
         /// <summary>

@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace PRA.WEBFORME
 {
-    public partial class PrijavaPostoječegKorisnika : System.Web.UI.Page
+    public partial class PrijavaPostojecegKorisnika : System.Web.UI.Page
     {
         private DBQuizardEntities _context = new DBQuizardEntities();
         public UserAcc user = new UserAcc();

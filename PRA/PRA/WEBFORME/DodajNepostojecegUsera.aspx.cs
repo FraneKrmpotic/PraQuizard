@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace PRA.WEBFORME
 {
-    public partial class DodajNepostojećegUsera : System.Web.UI.Page
+    public partial class DodajNepostojecegUsera : System.Web.UI.Page
     {
         private DBQuizardEntities _context = new DBQuizardEntities();
         public UserAcc user = new UserAcc();

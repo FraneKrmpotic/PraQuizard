@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PrijavaPostojecegKorisnika.aspx.cs" UnobtrusiveValidationMode="None" Inherits="PRA.WEBFORME.PrijavaPostoječegKorisnika" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PrijavaPostojecegKorisnika.aspx.cs" UnobtrusiveValidationMode="None" Inherits="PRA.WEBFORME.PrijavaPostojecegKorisnika" %>
 
 <!DOCTYPE html>
 
