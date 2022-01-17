@@ -8,7 +8,24 @@
     <title></title>
 </head>
 <body>
-    <h1 style="text-align:center;">Kreiraj račun</h1>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/WEBFORME/DodajNepostojecegUsera.aspx">Napravi račun</a></li>
+                    <li><a href="/WEBFORME/PrijavaPostojecegKorisnika.aspx">Prijavi se</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <h1 style="margin-top:5%; text-align:center;">Kreiraj račun</h1>
     <form id="form1" runat="server">
 <div class="container"  style="width:50%; align-items:center">
         <div class="form-group">
@@ -33,9 +50,9 @@
             <asp:TextBox ID="txtNadimak" CssClass="form-control" runat="server"></asp:TextBox>
             <asp:RequiredFieldValidator ID="Val6" ControlToValidate="txtNadimak" runat="server" ErrorMessage="Nadimak je obvezan"></asp:RequiredFieldValidator>
         </div>
-        <div class="form-group">
+        <div class="form-group" style="text-align: center; display: inline-block;">
             <asp:Button ID="btnOdustani" CssClass="btn btn-danger" runat="server" text="Odustani" OnClientClick="JavaScript:window.history.back(1);return false;" />
-            <asp:Button ID="btnSpremi" style="margin-left:622px;" CssClass="btn btn-primary" runat="server" Text="Spremi promjene" OnClick="btnSpremi_Click" />
+            <asp:Button ID="btnSpremi"  CssClass="btn btn-primary" runat="server" Text="Spremi promjene" OnClick="btnSpremi_Click" />
         </div>
     </div>
     </form>

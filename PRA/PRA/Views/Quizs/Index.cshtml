@@ -1,0 +1,48 @@
+﻿@model IEnumerable<PRA.DBQuizard.Quiz>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Quizs</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserAcc.Email)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserAcc.Email)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.IDQuiz }) |
+                @Html.ActionLink("Details", "Details", new { id = item.IDQuiz }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.IDQuiz }) |
+                @Html.ActionLink("EditQuestions", "Index", "Questions")
+            </td>
+        </tr>
+    }
+
+</table>

@@ -31,7 +31,7 @@ namespace PRA.WEBFORME
 
             if (email == userUBazi.Email && password == userUBazi.Pass)
             {
-                Response.Redirect("https://localhost:44305/Home/PrijavljeniKorisnik");
+                Response.Redirect("https://localhost:44305/Home/Index");
                 errorSpan.Text = "";
             }
             else
