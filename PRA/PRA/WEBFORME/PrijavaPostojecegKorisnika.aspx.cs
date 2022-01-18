@@ -17,7 +17,10 @@ namespace PRA.WEBFORME
        
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Request.Cookies["accout"] != null)
+            {
+                Response.Cookies["account"].Expires = DateTime.Now.AddDays(-1);
+            }
         }
         protected void btnPrijavi_Click(object sender, EventArgs e)
         {
@@ -31,6 +34,10 @@ namespace PRA.WEBFORME
 
             if (email == userUBazi.Email && password == userUBazi.Pass)
             {
+                HttpCookie kuki = new HttpCookie("account");
+                kuki["ID"] = _context.UserAcc.FirstOrDefault(x => x.Email == email).IDUserAcc.ToString();
+                kuki.Expires = DateTime.Now.AddSeconds(300); //povecati trajanje kuki-a
+                Response.Cookies.Add(kuki);
                 Response.Redirect("https://localhost:44305/Home/Index");
                 errorSpan.Text = "";
             }

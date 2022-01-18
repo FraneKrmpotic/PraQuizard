@@ -17,6 +17,11 @@ namespace PRA.Controllers
         // GET: Answers
         public ActionResult Index()
         {
+            if (Request.Cookies["account"] == null)
+            {
+                return Redirect("~/WEBFORME/PrijavaPostojecegKorisnika.aspx");
+            }
+
             var answer = db.Answer.Include(a => a.Question);
             return View(answer.ToList());
         }
@@ -24,6 +29,11 @@ namespace PRA.Controllers
         // GET: Answers/Details/5
         public ActionResult Details(int? id)
         {
+            if (Request.Cookies["account"] == null)
+            {
+                return Redirect("~/WEBFORME/PrijavaPostojecegKorisnika.aspx");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -39,6 +49,11 @@ namespace PRA.Controllers
         // GET: Answers/Create
         public ActionResult Create()
         {
+            if (Request.Cookies["account"] == null)
+            {
+                return Redirect("~/WEBFORME/PrijavaPostojecegKorisnika.aspx");
+            }
+
             ViewBag.QuestionID = new SelectList(db.Question, "IDQuestion", "Question1");
             return View();
         }
@@ -50,6 +65,11 @@ namespace PRA.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "IDAnswer,Answer1,RightAnswer,IsActive,QuestionID")] Answer answer)
         {
+            if (Request.Cookies["account"] == null)
+            {
+                return Redirect("~/WEBFORME/PrijavaPostojecegKorisnika.aspx");
+            }
+
             if (ModelState.IsValid)
             {
                 db.Answer.Add(answer);
@@ -64,6 +84,11 @@ namespace PRA.Controllers
         // GET: Answers/Edit/5
         public ActionResult Edit(int? id)
         {
+            if (Request.Cookies["account"] == null)
+            {
+                return Redirect("~/WEBFORME/PrijavaPostojecegKorisnika.aspx");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -84,6 +109,11 @@ namespace PRA.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "IDAnswer,Answer1,RightAnswer,IsActive,QuestionID")] Answer answer)
         {
+            if (Request.Cookies["account"] == null)
+            {
+                return Redirect("~/WEBFORME/PrijavaPostojecegKorisnika.aspx");
+            }
+
             if (ModelState.IsValid)
             {
                 db.Entry(answer).State = EntityState.Modified;
@@ -97,6 +127,11 @@ namespace PRA.Controllers
         // GET: Answers/Delete/5
         public ActionResult Delete(int? id)
         {
+            if (Request.Cookies["account"] == null)
+            {
+                return Redirect("~/WEBFORME/PrijavaPostojecegKorisnika.aspx");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -114,6 +149,11 @@ namespace PRA.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            if (Request.Cookies["account"] == null)
+            {
+                return Redirect("~/WEBFORME/PrijavaPostojecegKorisnika.aspx");
+            }
+
             Answer answer = db.Answer.Find(id);
             db.Answer.Remove(answer);
             db.SaveChanges();

@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using PRA.DBQuizard;
+using PRA.ViewModels;
 
 namespace PRA.Controllers
 {
@@ -17,13 +18,32 @@ namespace PRA.Controllers
         // GET: Quizs
         public ActionResult Index()
         {
+            if (Request.Cookies["account"] == null)
+            {
+                return Redirect("~/WEBFORME/PrijavaPostojecegKorisnika.aspx");
+            }
+            //string email = Session["userEmail"].ToString();
+            //UserAcc user = db.UserAcc.SingleOrDefault(u => u.Email == email);
+            //IList<Quiz> quizz = db.Quiz.Where(q => q.UserAccID == user.IDUserAcc).ToList();
+            //UserIKvizovi quiz = new UserIKvizovi
+            //{
+            //    User = user,
+            //    Quizovi = quizz
+            //};
+            //return View(userIKvizovi);
+
             var quiz = db.Quiz.Include(q => q.UserAcc);
-            return View(quiz.ToList());
+                return View(quiz.ToList());
         }
 
         // GET: Quizs/Details/5
         public ActionResult Details(int? id)
         {
+            if (Request.Cookies["account"] == null)
+            {
+                return Redirect("~/WEBFORME/PrijavaPostojecegKorisnika.aspx");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -39,6 +59,11 @@ namespace PRA.Controllers
         // GET: Quizs/Create
         public ActionResult Create()
         {
+            if (Request.Cookies["account"] == null)
+            {
+                return Redirect("~/WEBFORME/PrijavaPostojecegKorisnika.aspx");
+            }
+
             ViewBag.UserAccID = new SelectList(db.UserAcc, "IDUserAcc", "Email");
             return View();
         }
@@ -50,6 +75,11 @@ namespace PRA.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "IDQuiz,Title,IsActive,UserAccID")] Quiz quiz)
         {
+            if (Request.Cookies["account"] == null)
+            {
+                return Redirect("~/WEBFORME/PrijavaPostojecegKorisnika.aspx");
+            }
+
             if (ModelState.IsValid)
             {
                 db.Quiz.Add(quiz);
@@ -64,6 +94,11 @@ namespace PRA.Controllers
         // GET: Quizs/Edit/5
         public ActionResult Edit(int? id)
         {
+            if (Request.Cookies["account"] == null)
+            {
+                return Redirect("~/WEBFORME/PrijavaPostojecegKorisnika.aspx");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -84,6 +119,11 @@ namespace PRA.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "IDQuiz,Title,IsActive,UserAccID")] Quiz quiz)
         {
+            if (Request.Cookies["account"] == null)
+            {
+                return Redirect("~/WEBFORME/PrijavaPostojecegKorisnika.aspx");
+            }
+
             if (ModelState.IsValid)
             {
                 db.Entry(quiz).State = EntityState.Modified;
@@ -97,6 +137,11 @@ namespace PRA.Controllers
         // GET: Quizs/Delete/5
         public ActionResult Delete(int? id)
         {
+            if (Request.Cookies["account"] == null)
+            {
+                return Redirect("~/WEBFORME/PrijavaPostojecegKorisnika.aspx");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -114,6 +159,11 @@ namespace PRA.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            if (Request.Cookies["account"] == null)
+            {
+                return Redirect("~/WEBFORME/PrijavaPostojecegKorisnika.aspx");
+            }
+
             Quiz quiz = db.Quiz.Find(id);
             db.Quiz.Remove(quiz);
             db.SaveChanges();

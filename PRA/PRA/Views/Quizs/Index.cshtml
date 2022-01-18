@@ -26,23 +26,27 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsActive)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserAcc.Email)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.IDQuiz }) |
-                @Html.ActionLink("Details", "Details", new { id = item.IDQuiz }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.IDQuiz }) |
-                @Html.ActionLink("EditQuestions", "Index", "Questions")
-            </td>
-        </tr>
+	        
+		if (item.UserAccID.ToString() == Request.Cookies["account"]["ID"].ToString())
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsActive)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserAcc.Email)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.IDQuiz }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.IDQuiz }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.IDQuiz }) |
+                    @Html.ActionLink("EditQuestions", "Index", "Questions")
+                </td>
+            </tr>
+        }
     }
 
 </table>
