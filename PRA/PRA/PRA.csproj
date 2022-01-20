@@ -199,6 +199,13 @@
     <Compile Include="WEBFORME\DodajNepostojecegUsera.aspx.designer.cs">
       <DependentUpon>DodajNepostojecegUsera.aspx</DependentUpon>
     </Compile>
+    <Compile Include="WEBFORME\Gost.aspx.cs">
+      <DependentUpon>Gost.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WEBFORME\Gost.aspx.designer.cs">
+      <DependentUpon>Gost.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WEBFORME\PrijavaPostojecegKorisnika.aspx.cs">
       <DependentUpon>PrijavaPostojecegKorisnika.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -229,6 +236,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="WEBFORME\DodajNepostojecegUsera.aspx" />
+    <Content Include="WEBFORME\Gost.aspx" />
     <Content Include="WEBFORME\PrijavaPostojecegKorisnika.aspx" />
     <EntityDeploy Include="DBQuizard\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>

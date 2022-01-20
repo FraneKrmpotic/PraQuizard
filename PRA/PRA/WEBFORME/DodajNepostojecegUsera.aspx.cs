@@ -24,7 +24,7 @@ namespace PRA.WEBFORME
             user.Username = txtNadimak.Text;
             _context.UserAcc.Add(user);
             _context.SaveChanges();
-            Response.Redirect("https://localhost:44305/");
+            Response.Redirect("~/ WEBFORME / PrijavaPostojecegKorisnika.aspx");
         }
     }
 }

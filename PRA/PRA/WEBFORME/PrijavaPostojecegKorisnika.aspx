@@ -21,6 +21,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="/WEBFORME/DodajNepostojecegUsera.aspx">Napravi račun</a></li>
                     <li><a href="/WEBFORME/PrijavaPostojecegKorisnika.aspx">Prijavi se</a></li>
+                    <li><a href="/WEBFORME/Gost.aspx">Prijavi se kao gost</a></li>
                 </ul>
             </div>
         </div>
