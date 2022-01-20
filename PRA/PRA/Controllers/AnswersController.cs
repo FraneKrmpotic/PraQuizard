@@ -15,12 +15,20 @@ namespace PRA.Controllers
         private DBQuizardEntities db = new DBQuizardEntities();
 
         // GET: Answers
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
             if (Request.Cookies["account"] == null)
             {
                 return Redirect("~/WEBFORME/PrijavaPostojecegKorisnika.aspx");
             }
+
+
+            HttpCookie kuki03 = new HttpCookie("question");
+            kuki03["ID"] = db.Question.FirstOrDefault(x => x.IDQuestion == id).IDQuestion.ToString();
+            kuki03.Expires = DateTime.Now.AddSeconds(500); //povecati trajanje kuki-a
+            Response.Cookies.Add(kuki03);
+
+            ViewBag.IDQuestion = id;
 
             var answer = db.Answer.Include(a => a.Question);
             return View(answer.ToList());
@@ -55,6 +63,7 @@ namespace PRA.Controllers
             }
 
             ViewBag.QuestionID = new SelectList(db.Question, "IDQuestion", "Question1");
+            ViewBag.questionId = Request.Cookies["question"]["id"].ToString();
             return View();
         }
 
@@ -74,7 +83,7 @@ namespace PRA.Controllers
             {
                 db.Answer.Add(answer);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { id = Request.Cookies["quiz"]["ID"].ToString() });
             }
 
             ViewBag.QuestionID = new SelectList(db.Question, "IDQuestion", "Question1", answer.QuestionID);

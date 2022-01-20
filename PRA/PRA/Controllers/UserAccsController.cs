@@ -17,12 +17,22 @@ namespace PRA.Controllers
         // GET: UserAccs
         public ActionResult Index()
         {
+            if (Request.Cookies["account"] == null)
+            {
+                return Redirect("~/WEBFORME/PrijavaPostojecegKorisnika.aspx");
+            }
+
             return View(db.UserAcc.ToList());
         }
 
         // GET: UserAccs/Details/5
         public ActionResult Details(int? id)
         {
+            if (Request.Cookies["account"] == null)
+            {
+                return Redirect("~/WEBFORME/PrijavaPostojecegKorisnika.aspx");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -38,6 +48,11 @@ namespace PRA.Controllers
         // GET: UserAccs/Create
         public ActionResult Create()
         {
+            if (Request.Cookies["account"] == null)
+            {
+                return Redirect("~/WEBFORME/PrijavaPostojecegKorisnika.aspx");
+            }
+
             return View();
         }
 
@@ -48,6 +63,11 @@ namespace PRA.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "IDUserAcc,Email,Pass,Username,IsActive")] UserAcc userAcc)
         {
+            if (Request.Cookies["account"] == null)
+            {
+                return Redirect("~/WEBFORME/PrijavaPostojecegKorisnika.aspx");
+            }
+
             if (ModelState.IsValid)
             {
                 db.UserAcc.Add(userAcc);
@@ -61,6 +81,11 @@ namespace PRA.Controllers
         // GET: UserAccs/Edit/5
         public ActionResult Edit(int? id)
         {
+            if (Request.Cookies["account"] == null)
+            {
+                return Redirect("~/WEBFORME/PrijavaPostojecegKorisnika.aspx");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -80,6 +105,11 @@ namespace PRA.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "IDUserAcc,Email,Pass,Username,IsActive")] UserAcc userAcc)
         {
+            if (Request.Cookies["account"] == null)
+            {
+                return Redirect("~/WEBFORME/PrijavaPostojecegKorisnika.aspx");
+            }
+
             if (ModelState.IsValid)
             {
                 db.Entry(userAcc).State = EntityState.Modified;
@@ -92,6 +122,11 @@ namespace PRA.Controllers
         // GET: UserAccs/Delete/5
         public ActionResult Delete(int? id)
         {
+            if (Request.Cookies["account"] == null)
+            {
+                return Redirect("~/WEBFORME/PrijavaPostojecegKorisnika.aspx");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -109,10 +144,16 @@ namespace PRA.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            if (Request.Cookies["account"] == null)
+            {
+                return Redirect("~/WEBFORME/PrijavaPostojecegKorisnika.aspx");
+            }
+
             UserAcc userAcc = db.UserAcc.Find(id);
             db.UserAcc.Remove(userAcc);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            //return RedirectToAction("Index");
+            return RedirectToAction("~/ WEBFORME / PrijavaPostojecegKorisnika.aspx");
         }
 
         protected override void Dispose(bool disposing)

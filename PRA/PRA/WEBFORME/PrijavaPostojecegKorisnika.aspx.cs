@@ -19,7 +19,17 @@ namespace PRA.WEBFORME
         {
             if (Request.Cookies["accout"] != null)
             {
-                Response.Cookies["account"].Expires = DateTime.Now.AddDays(-1);
+                //Response.Cookies["accout"].Expires = DateTime.Now.AddDays(-1D);
+
+                //Fetch the Cookie using its Key.
+                HttpCookie kuki = new HttpCookie("account");
+
+                //Set the Expiry date to past date.
+                kuki.Expires = DateTime.Now.AddSeconds(-500);
+
+                //Update the Cookie in Browser.
+                Response.Cookies.Add(kuki);
+
             }
         }
         protected void btnPrijavi_Click(object sender, EventArgs e)
@@ -36,9 +46,11 @@ namespace PRA.WEBFORME
             {
                 HttpCookie kuki = new HttpCookie("account");
                 kuki["ID"] = _context.UserAcc.FirstOrDefault(x => x.Email == email).IDUserAcc.ToString();
-                kuki.Expires = DateTime.Now.AddSeconds(300); //povecati trajanje kuki-a
+                kuki["email"] = _context.UserAcc.FirstOrDefault(x => x.Email == email).Email.ToString();
+                kuki.Expires = DateTime.Now.AddSeconds(500); //povecati trajanje kuki-a
                 Response.Cookies.Add(kuki);
                 Response.Redirect("https://localhost:44305/Home/Index");
+
                 errorSpan.Text = "";
             }
             else

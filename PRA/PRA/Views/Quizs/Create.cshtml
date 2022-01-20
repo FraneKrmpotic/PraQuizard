@@ -23,19 +23,21 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;">
             @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.IsActive, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.IsActive, new { htmlAttributes = new { @class = "form-control", @Value = 1 } })
                 @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;">
             @Html.LabelFor(model => model.UserAccID, "UserAccID", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("UserAccID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.EditorFor(model => model.UserAccID, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.Email } })
                 @Html.ValidationMessageFor(model => model.UserAccID, "", new { @class = "text-danger" })
+                @*@Html.DropDownList("UserAccID", null, htmlAttributes: new { @class = "form-control", Value = ViewBag.Email })
+        @Html.ValidationMessageFor(model => model.UserAccID, "", new { @class = "text-danger" })*@
             </div>
         </div>
 

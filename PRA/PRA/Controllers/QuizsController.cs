@@ -65,6 +65,8 @@ namespace PRA.Controllers
             }
 
             ViewBag.UserAccID = new SelectList(db.UserAcc, "IDUserAcc", "Email");
+            ViewBag.Email = Request.Cookies["account"]["id"].ToString();
+            //ViewBag.UserAccID = db.UserAcc.Where(db.UserAcc.g == Request.Cookies["account"]["ID"].ToString());
             return View();
         }
 
@@ -103,6 +105,7 @@ namespace PRA.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Quiz quiz = db.Quiz.Find(id);
             if (quiz == null)
             {

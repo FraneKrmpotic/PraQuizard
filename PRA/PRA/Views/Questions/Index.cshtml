@@ -28,7 +28,9 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
+    if (item.QuizID == ViewBag.IDQuiz)
+	{
+		<tr>
         <td>
             @Html.DisplayFor(modelItem => item.Question1)
         </td>
@@ -45,9 +47,10 @@
             @Html.ActionLink("Edit", "Edit", new { id = item.IDQuestion }) |
             @Html.ActionLink("Details", "Details", new { id = item.IDQuestion }) |
             @Html.ActionLink("Delete", "Delete", new { id = item.IDQuestion }) |
-            @Html.ActionLink("EditAnswers", "Index", "Answers")
+            @Html.ActionLink("EditAnswers", "Index", "Answers", new { id = item.IDQuestion }, null)
         </td>
-    </tr>
+    </tr> 
+	}
 }
 
 </table>

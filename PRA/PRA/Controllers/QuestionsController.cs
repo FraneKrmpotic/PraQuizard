@@ -15,13 +15,19 @@ namespace PRA.Controllers
         private DBQuizardEntities db = new DBQuizardEntities();
 
         // GET: Questions
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
             if (Request.Cookies["account"] == null)
             {
                 return Redirect("~/WEBFORME/PrijavaPostojecegKorisnika.aspx");
             }
 
+            HttpCookie kuki02 = new HttpCookie("quiz");
+            kuki02["ID"] = db.Quiz.FirstOrDefault(x => x.IDQuiz == id ).IDQuiz.ToString();
+            kuki02.Expires = DateTime.Now.AddSeconds(500); //povecati trajanje kuki-a
+            Response.Cookies.Add(kuki02);
+
+            ViewBag.IDQuiz = id;
             var question = db.Question.Include(q => q.Quiz);
             return View(question.ToList());
         }
@@ -55,6 +61,7 @@ namespace PRA.Controllers
             }
 
             ViewBag.QuizID = new SelectList(db.Quiz, "IDQuiz", "Title");
+            ViewBag.quizId = Request.Cookies["quiz"]["id"].ToString();
             return View();
         }
 
@@ -74,7 +81,7 @@ namespace PRA.Controllers
             {
                 db.Question.Add(question);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { id = Request.Cookies["quiz"]["ID"].ToString() });
             }
 
             ViewBag.QuizID = new SelectList(db.Quiz, "IDQuiz", "Title", question.QuizID);
@@ -118,7 +125,7 @@ namespace PRA.Controllers
             {
                 db.Entry(question).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { id = Request.Cookies["quiz"]["ID"].ToString() });
             }
             ViewBag.QuizID = new SelectList(db.Quiz, "IDQuiz", "Title", question.QuizID);
             return View(question);
@@ -157,7 +164,7 @@ namespace PRA.Controllers
             Question question = db.Question.Find(id);
             db.Question.Remove(question);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", new { id = Request.Cookies["quiz"]["ID"].ToString() });
         }
 
         protected override void Dispose(bool disposing)

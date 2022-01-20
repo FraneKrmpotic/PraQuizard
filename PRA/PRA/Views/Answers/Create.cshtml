@@ -31,18 +31,19 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group", style="display: none;">
             @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.IsActive, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.IsActive, new { htmlAttributes = new { @class = "form-control", @Value = 1 } })
                 @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group", style="display: none;">
             @Html.LabelFor(model => model.QuestionID, "QuestionID", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("QuestionID", null, htmlAttributes: new { @class = "form-control" })
+                @*@Html.DropDownList("QuestionID", null, htmlAttributes: new { @class = "form-control" })*@
+                @Html.EditorFor(model => model.QuestionID, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.questionId } })
                 @Html.ValidationMessageFor(model => model.QuestionID, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -56,5 +57,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index", new { id = Request.Cookies["question"]["ID"].ToString() }, null)
 </div>

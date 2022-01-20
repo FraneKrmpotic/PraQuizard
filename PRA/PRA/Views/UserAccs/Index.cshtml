@@ -7,7 +7,7 @@
 
 <h2>Index</h2>
 
-<p>
+<p style="display: none;">
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
@@ -28,7 +28,9 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
+if (item.IDUserAcc.ToString() == Request.Cookies["account"]["ID"].ToString())
+	{
+		    <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Email)
         </td>
@@ -46,7 +48,8 @@
             @Html.ActionLink("Details", "Details", new { id=item.IDUserAcc }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.IDUserAcc })
         </td>
-    </tr>
+    </tr> 
+	}
 }
 
 </table>

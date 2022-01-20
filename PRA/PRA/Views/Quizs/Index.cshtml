@@ -43,7 +43,7 @@
                     @Html.ActionLink("Edit", "Edit", new { id = item.IDQuiz }) |
                     @Html.ActionLink("Details", "Details", new { id = item.IDQuiz }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.IDQuiz }) |
-                    @Html.ActionLink("EditQuestions", "Index", "Questions")
+                    @Html.ActionLink("EditQuestions", "Index", "Questions", new { id = item.IDQuiz }, null)
                 </td>
             </tr>
         }

@@ -28,7 +28,9 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
+    if (item.QuestionID == ViewBag.IDQuestion)
+	{
+		<tr>
         <td>
             @Html.DisplayFor(modelItem => item.Answer1)
         </td>
@@ -46,11 +48,12 @@
             @Html.ActionLink("Details", "Details", new { id=item.IDAnswer }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.IDAnswer })
         </td>
-    </tr>
+    </tr> 
+	}
 }
 
 </table>
 
 <div>
-    @Html.ActionLink("Back to Questions", "Index", "Questions")
+    @Html.ActionLink("Back to Questions", "Index", "Questions", new { id = Request.Cookies["quiz"]["ID"].ToString() }, null)
 </div>
