@@ -34,7 +34,6 @@ namespace PRA.WEBFORME
         }
         protected void btnPrijavi_Click(object sender, EventArgs e)
         {
-             
 
             email = txtEmail.Text;
             password = txtLozinka.Text;
@@ -42,7 +41,7 @@ namespace PRA.WEBFORME
             Session["userEmail"] = email;
             var userUBazi = _context.UserAcc.SingleOrDefault(u => u.Email == email);
 
-            if (email == userUBazi.Email && password == userUBazi.Pass)
+            if (email == userUBazi.Email && password == userUBazi.Pass && userUBazi.IsActive == 1 && userUBazi != null)
             {
                 HttpCookie kuki = new HttpCookie("account");
                 kuki["ID"] = _context.UserAcc.FirstOrDefault(x => x.Email == email).IDUserAcc.ToString();

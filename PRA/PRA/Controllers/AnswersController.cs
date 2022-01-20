@@ -127,7 +127,7 @@ namespace PRA.Controllers
             {
                 db.Entry(answer).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { id = Request.Cookies["question"]["ID"].ToString() });
             }
             ViewBag.QuestionID = new SelectList(db.Question, "IDQuestion", "Question1", answer.QuestionID);
             return View(answer);

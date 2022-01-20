@@ -150,10 +150,11 @@ namespace PRA.Controllers
             }
 
             UserAcc userAcc = db.UserAcc.Find(id);
-            db.UserAcc.Remove(userAcc);
+            userAcc.IsActive = 0;
+            db.Entry(userAcc).State = EntityState.Modified;
             db.SaveChanges();
             //return RedirectToAction("Index");
-            return RedirectToAction("/WEBFORME/PrijavaPostojecegKorisnika.aspx");//popraviti link
+            return Redirect("~/WEBFORME/PrijavaPostojecegKorisnika.aspx");//popraviti link
         }
 
         protected override void Dispose(bool disposing)
