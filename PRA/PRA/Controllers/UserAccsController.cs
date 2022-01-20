@@ -153,7 +153,7 @@ namespace PRA.Controllers
             db.UserAcc.Remove(userAcc);
             db.SaveChanges();
             //return RedirectToAction("Index");
-            return RedirectToAction("~/ WEBFORME / PrijavaPostojecegKorisnika.aspx");
+            return RedirectToAction("/WEBFORME/PrijavaPostojecegKorisnika.aspx");//popraviti link
         }
 
         protected override void Dispose(bool disposing)
