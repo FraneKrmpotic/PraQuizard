@@ -83,7 +83,7 @@ namespace PRA.Controllers
             {
                 db.Answer.Add(answer);
                 db.SaveChanges();
-                return RedirectToAction("Index", new { id = Request.Cookies["quiz"]["ID"].ToString() });
+                return RedirectToAction("Index", new { id = Request.Cookies["question"]["ID"].ToString() });
             }
 
             ViewBag.QuestionID = new SelectList(db.Question, "IDQuestion", "Question1", answer.QuestionID);
