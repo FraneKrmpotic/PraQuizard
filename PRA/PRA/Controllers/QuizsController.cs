@@ -173,6 +173,22 @@ namespace PRA.Controllers
             return RedirectToAction("Index");
         }
 
+
+        public ActionResult Start(int id)
+        {
+            if (Request.Cookies["account"] == null)
+            {
+                return Redirect("~/WEBFORME/PrijavaPostojecegKorisnika.aspx");
+            }
+
+            Quiz quiz = db.Quiz.Find(id);
+
+
+            return View(quiz);
+        }
+
+
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

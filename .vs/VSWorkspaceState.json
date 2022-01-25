@@ -1,7 +1,12 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\PRA",
+    "\\PRA\\PRA",
+    "\\PRA\\PRA\\Views",
+    "\\PRA\\PRA\\Views\\Home",
+    "\\PRA\\PRA\\WEBFORME"
   ],
-  "SelectedNode": "\\PRA.sln",
+  "SelectedNode": "\\PRA\\PRA\\WEBFORME\\PrijavaPostojecegKorisnika.aspx.cs",
   "PreviewInSolutionExplorer": false
 }

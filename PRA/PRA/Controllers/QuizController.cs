@@ -22,8 +22,11 @@ namespace PRA.Controllers
         // GET: Quiz
         public ActionResult Index()
         {
-            return View();
+           return View();
         }
+
+
+
 
     }
 }
