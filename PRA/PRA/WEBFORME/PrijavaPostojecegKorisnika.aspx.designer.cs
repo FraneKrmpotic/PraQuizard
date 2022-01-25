@@ -96,15 +96,6 @@ namespace PRA.WEBFORME
         protected global::System.Web.UI.WebControls.RequiredFieldValidator Val4;
 
         /// <summary>
-        /// btnOdustani control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnOdustani;
-
-        /// <summary>
         /// btnPrijavi control.
         /// </summary>
         /// <remarks>
@@ -112,5 +103,14 @@ namespace PRA.WEBFORME
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnPrijavi;
+
+        /// <summary>
+        /// btnOdustani control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnOdustani;
     }
 }

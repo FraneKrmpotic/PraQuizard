@@ -22,9 +22,10 @@ namespace PRA.WEBFORME
             user.Email = txtEmail.Text;
             user.Pass = txtLozinka.Text;
             user.Username = txtNadimak.Text;
+            user.IsActive = 1;
             _context.UserAcc.Add(user);
             _context.SaveChanges();
-            Response.Redirect("~/ WEBFORME / PrijavaPostojecegKorisnika.aspx");
+            Response.Redirect("~/WEBFORME/PrijavaPostojecegKorisnika.aspx");
         }
     }
 }

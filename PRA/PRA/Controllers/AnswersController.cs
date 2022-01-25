@@ -22,7 +22,6 @@ namespace PRA.Controllers
                 return Redirect("~/WEBFORME/PrijavaPostojecegKorisnika.aspx");
             }
 
-
             HttpCookie kuki03 = new HttpCookie("question");
             kuki03["ID"] = db.Question.FirstOrDefault(x => x.IDQuestion == id).IDQuestion.ToString();
             kuki03.Expires = DateTime.Now.AddSeconds(500); //povecati trajanje kuki-a
@@ -166,7 +165,7 @@ namespace PRA.Controllers
             Answer answer = db.Answer.Find(id);
             db.Answer.Remove(answer);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", new { id = Request.Cookies["question"]["ID"].ToString() });
         }
 
         protected override void Dispose(bool disposing)

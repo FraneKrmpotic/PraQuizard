@@ -43,8 +43,8 @@
             <asp:RequiredFieldValidator ID="Val4" ControlToValidate="txtLozinka" runat="server" ErrorMessage="Lozinka je obvezna"></asp:RequiredFieldValidator>
         </div>
         <div class="form-group" style="text-align: center; display: inline-block;">
-            <asp:Button ID="btnOdustani" CssClass="btn btn-danger" runat="server" text="Odustani" OnClientClick="JavaScript:window.history.back(1);return false;" />
             <asp:Button ID="btnPrijavi"  CssClass="btn btn-primary" runat="server" Text="Prijavi se" OnClick="btnPrijavi_Click" />
+            <asp:Button ID="btnOdustani" CssClass="btn btn-danger" runat="server" text="Odustani" OnClientClick="JavaScript:window.history.back(1);return false;" />
         </div>
     </div>
     </form>

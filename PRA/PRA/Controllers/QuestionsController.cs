@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using PRA.DBQuizard;
+using PRA.Dto;
 
 namespace PRA.Controllers
 {
@@ -23,13 +24,45 @@ namespace PRA.Controllers
             }
 
             HttpCookie kuki02 = new HttpCookie("quiz");
-            kuki02["ID"] = db.Quiz.FirstOrDefault(x => x.IDQuiz == id ).IDQuiz.ToString();
+            kuki02["ID"] = db.Quiz.FirstOrDefault(x => x.IDQuiz == id).IDQuiz.ToString();
             kuki02.Expires = DateTime.Now.AddSeconds(500); //povecati trajanje kuki-a
             Response.Cookies.Add(kuki02);
 
             ViewBag.IDQuiz = id;
             var question = db.Question.Include(q => q.Quiz);
             return View(question.ToList());
+        }
+        /*
+        public class ViewModel
+{
+    // since the CustID is numeric, I prefer using 'int' propertypublic int IsSelected { get; set; }
+
+    public List<Customer> Customers { get; set; }
+
+    // other properties
+}
+      
+
+        [HttpPost]
+        public ActionResult AddCustomerLinkToDB(AnswerDto answer)
+        {
+            int selectedCustomer = (int)answer.RightAnswer;
+            // other stuffreturn View();
+        }
+          */
+
+
+        // POST: Answers
+        [HttpPost]
+        public ActionResult Save(int id)
+        {
+            if (Request.Cookies["account"] == null)
+            {
+                return Redirect("~/WEBFORME/PrijavaPostojecegKorisnika.aspx");
+            }
+
+            return RedirectToAction("Index", new { id = Request.Cookies["question"]["ID"].ToString() });
+
         }
 
         // GET: Questions/Details/5
