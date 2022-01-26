@@ -1,0 +1,25 @@
+﻿input[type=submit] {
+    box-shadow: rgb(0 0 0 / 30%) 2px 5px 10px;
+    margin: 0.3em;
+    padding: 0.5em 1em;
+    font-size: 1.1em;
+}
+
+.front-box {
+    box-shadow: rgb(0 0 0 / 30%) 5px 10px 20px;
+    border-radius: 1em;
+    background-color: white;
+    padding: 3em;
+    margin-bottom: 10em;
+}
+
+.background {
+    background-color: #fdfdfd;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
