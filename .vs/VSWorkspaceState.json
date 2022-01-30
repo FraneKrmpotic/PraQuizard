@@ -1,10 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\PRA",
-    "\\PRA\\PRA",
-    "\\PRA\\PRA\\Controllers"
+    ""
   ],
-  "SelectedNode": "\\PRA\\PRA\\Controllers\\QuestionsController.cs",
+  "SelectedNode": "\\PRA.sln",
   "PreviewInSolutionExplorer": false
 }
